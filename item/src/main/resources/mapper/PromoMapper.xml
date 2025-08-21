@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.item.mapper.PromoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.edu.guet.item.domain.Promo">
+            <id property="id" column="id" />
+            <result property="promoName" column="promo_name" />
+            <result property="startDate" column="start_date" />
+            <result property="endDate" column="end_date" />
+            <result property="itemId" column="item_id" />
+            <result property="promoItemPrice" column="promo_item_price" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,promo_name,start_date,end_date,item_id,promo_item_price
+    </sql>
+
+    <select id="selectItemDetailByItemId" resultType="cn.edu.guet.item.domain.ItemDetailDTO">
+        SELECT
+            p.id AS id,  -- 促销ID
+            i.title AS title,  -- 商品标题（对应DTO的title）
+            i.price AS price,  -- 商品原价（对应DTO的price）
+            i.description AS description,  -- 商品描述（对应DTO的description）
+            i.sales AS sales,  -- 商品销量（对应DTO的sales）
+            i.img_url AS imgUrl,  -- 商品图片（数据库下划线转DTO驼峰imgUrl）
+            p.promo_name AS promoName,  -- 促销名称（数据库下划线转DTO驼峰promoName）
+            p.start_date AS startDate,  -- 开始时间（数据库下划线转DTO驼峰startDate）
+            p.end_date AS endDate,  -- 结束时间（数据库下划线转DTO驼峰endDate）
+            p.promo_item_price AS promoItemPrice,  -- 促销价（数据库下划线转DTO驼峰promoItemPrice）
+            s.stock AS stock  -- 库存数量（对应DTO的stock）
+        FROM promo p
+                 LEFT JOIN item i ON p.item_id = i.id
+                 LEFT JOIN item_stock s ON p.item_id = s.item_id
+        WHERE p.item_id = #{itemId}
+
+    </select>
+</mapper>

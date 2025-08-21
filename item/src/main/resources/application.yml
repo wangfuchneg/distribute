@@ -1,0 +1,4 @@
+# application.yml 中开启 MyBatis 下划线转驼峰
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  # 默认为 false，需手动开启
