@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class PromoAndItemDTO {
     // 商品表字段
@@ -14,10 +15,10 @@ public class PromoAndItemDTO {
     private String imgUrl;       // 商品图片URL
     // 促销表字段
     private String promoName;    // 促销活动名称
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date startDate;      // 促销开始时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date endDate;        // 促销结束时间
+
+    private LocalDateTime startDate;      // 促销开始时间
+
+    private LocalDateTime endDate;        // 促销结束时间
     private BigDecimal promoItemPrice; // 促销价
     // 库存表字段
     private Integer stock; // 初始库存数量
@@ -63,19 +64,19 @@ public class PromoAndItemDTO {
         this.promoName = promoName;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

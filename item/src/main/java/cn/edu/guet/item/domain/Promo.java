@@ -2,6 +2,7 @@ package cn.edu.guet.item.domain;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -20,10 +21,10 @@ public class Promo {
 
     private String promoName;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date startDate;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date endDate;
+
+    private LocalDateTime startDate;
+
+    private LocalDateTime endDate;
 
     private Integer itemId;
 

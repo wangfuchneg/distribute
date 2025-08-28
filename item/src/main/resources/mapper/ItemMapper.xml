@@ -16,10 +16,11 @@
     <insert id="insert" parameterType="cn.edu.guet.item.domain.Item"
             useGeneratedKeys="true" keyProperty="id">
         INSERT INTO item (title, price, description, img_url)
-        VALUES (#{title}, #{price}, #{description},#{sales}, #{imgUrl})
+        VALUES (#{title}, #{price}, #{description}, #{imgUrl})
     </insert>
 
     <sql id="Base_Column_List">
         id,title,price,description,sales,img_url
     </sql>
+
 </mapper>

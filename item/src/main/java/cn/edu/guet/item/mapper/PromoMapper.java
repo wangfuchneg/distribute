@@ -5,6 +5,8 @@ import cn.edu.guet.item.domain.Promo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
 * @author liwei
 * @description 针对表【promo】的数据库操作Mapper
@@ -16,7 +18,7 @@ public interface PromoMapper extends BaseMapper<Promo> {
 
 
 
-
+    List<ItemDetailDTO> showPromos();  // 必须有这个方法
     ItemDetailDTO selectItemDetailByItemId(Integer itemId);
 }
 

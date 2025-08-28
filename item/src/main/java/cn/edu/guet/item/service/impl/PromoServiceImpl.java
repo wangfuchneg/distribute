@@ -68,6 +68,7 @@ public class PromoServiceImpl implements PromoService {
     public ItemDetailDTO getItemDetailById(Integer itemId) {
         // 直接调用多表关联查询，返回 ItemDetailDTO（无需手动组装）
         ItemDetailDTO dto = promoMapper.selectItemDetailByItemId(itemId);
+
         return dto;
 
 

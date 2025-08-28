@@ -3,6 +3,7 @@ package cn.edu.guet.item.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 // 无需泛型，直接定义实体类
@@ -16,10 +17,10 @@ public class ItemDetailDTO {
 
     // 促销关联字段
     private String promoName;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date startDate;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date endDate;
+
+    private LocalDateTime startDate;
+
+    private LocalDateTime endDate;
     private BigDecimal promoItemPrice;
 
     // 库存关联字段
@@ -71,19 +72,19 @@ public class ItemDetailDTO {
         this.promoName = promoName;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
