@@ -20,6 +20,7 @@
     <modules>
         <module>order</module>
         <module>item</module>
+        <module>login</module>
     </modules>
     <dependencyManagement>
         <dependencies>
