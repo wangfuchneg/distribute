@@ -11,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface OrderInfoService{
 
     boolean createOrder(OrderInfo orderInfo);
+
 }
